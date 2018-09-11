@@ -1,8 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.3'
 
-plugin 'cocoapods-fix-react-native'
-
 inhibit_all_warnings!
 
 target 'MobiusMobileWallet' do
@@ -52,36 +50,6 @@ target 'MobiusMobileWallet' do
 
   target 'MobiusMobileWalletTests' do
     inherit! :search_paths
-
-    pod 'React/RCTTest', path: '../node_modules/react-native'
   end
 end
 
-post_install do |installer|
-    # Pod project template has some overly strict build settings by default,
-    # which don't play nicely with react-native core components and libs.
-
-    extra_settings = %W[
-      CLANG_ANALYZER_NONNULL
-      CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION
-      CLANG_ENABLE_OBJC_WEAK
-      CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING
-      CLANG_WARN_COMMA
-      CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS
-      CLANG_WARN_DOCUMENTATION_COMMENTS
-      CLANG_WARN_INFINITE_RECURSION
-      CLANG_WARN_NON_LITERAL_NULL_CONVERSION
-      CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF
-      CLANG_WARN_OBJC_LITERAL_CONVERSION
-      CLANG_WARN_RANGE_LOOP_ANALYSIS
-      CLANG_WARN_STRICT_PROTOTYPES
-      CLANG_WARN_SUSPICIOUS_MOVE
-      CLANG_WARN_UNGUARDED_AVAILABILITY
-      GCC_NO_COMMON_BLOCKS
-    ]
-    installer.pods_project.build_configurations.each do |config|
-      extra_settings.each do |setting|
-        config.build_settings.delete(setting)
-      end
-    end
-end

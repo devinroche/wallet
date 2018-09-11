@@ -38,8 +38,7 @@ yarn-error.log
 
 # BUCK
 buck-out/
-\.buckd/
-*.keystore
+.buckd/
 
 # Android
 android/captures
@@ -56,10 +55,6 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/devices.txt
-.env
-.env.*
-!.env.default
-!.env.*.gpg
 
 # Bundle artifact
 *.jsbundle
@@ -70,4 +65,9 @@ ios/Pods/
 # Crashlytics Android
 crashlytics-build.properties
 com_crashlytics_export_strings.xml
+
+# Secrets
+*.keystore
+.env.local
+.env.secrets
 

@@ -15,7 +15,8 @@ apply plugin: 'io.fabric'
  * https://github.com/facebook/react-native/blob/master/local-cli/templates/HelloWorld/android/app/build.gradle#L14
  */
 project.ext.react = [
-    entryFile: "index.js"
+    entryFile: "index.js",
+    inputExcludes: ["android/**", "ios/**", ".buckd/**", "buck-out/**"],
 ]
 apply from: "../../node_modules/react-native/react.gradle"
 
